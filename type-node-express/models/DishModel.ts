@@ -1,4 +1,4 @@
-export class Dish {
+export default class Dish {
   dish_id: number;
   dish_name: string;
   dish_price: number;

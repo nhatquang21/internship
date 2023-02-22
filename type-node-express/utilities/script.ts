@@ -1,14 +1,19 @@
 import { table } from 'console';
 import pool from '../config/db';
+import Dish from '../models/DishModel';
 
-const getAllFromTable = (tableName: string, req: any, res: any) => {
-  pool.query(`SELECT * FROM ${tableName}`, (error: boolean, results: any) => {
-    if (error) {
-      throw error;
-    }
-    res.status(200).json(results.rows);
-  });
-};
+// async function getAllItem(tableName: string, model: string) {
+//   let modelTable: Dish =  Dish(model);
+//   try {
+//     let result = await pool.query(`SELECT * FROM ${tableName}`);
+//     if (result) {
+//       let list: typeof t[] = result.rows;
+//       return list;
+//     }
+//   } catch (e) {
+//     throw e;
+//   }
+// }
 
 const getItemByID = async (tableName: string, req: any, res: any) => {
   const id = parseInt(req.params.id);
@@ -115,7 +120,7 @@ const deleteItem = async (tableName: string, req: any, res: any) => {
 };
 
 const queries = {
-  getAllFromTable,
+  // getAllItem,
   getItemByID,
   createItem,
   updateItem,
