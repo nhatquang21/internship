@@ -1,31 +1,32 @@
-import Dish from '../models/dish.model';
+import Order from '../models/order.model';
 import pool from '../config/db';
 import { Request } from 'express';
 import BaseRepositoryInterface from './interface/base.repository.interface';
+import Dish from '../models/dish.model';
 
-export class DishRepository implements BaseRepositoryInterface<Dish> {
-  async getAll() {
+export class DishRepository implements BaseRepositoryInterface<Order> {
+  getAll = async () => {
     try {
-      let result = await pool.query(`SELECT * FROM Dishes`);
+      let result = await pool.query(`SELECT * FROM Orders`);
       if (result) {
-        let list: Dish[] = result.rows;
+        let list: Order[] = result.rows;
         return list;
       }
     } catch (e) {
       throw e;
     }
-  }
+  };
   getItemById = async (id: number) => {
     try {
       const result = await pool.query(
-        `SELECT * FROM Dishes WHERE dish_id = $1`,
+        `SELECT * FROM Dishes WHERE order_id = $1`,
         [id]
       );
 
       let length = Object.keys(result.rows).length;
       if (result && length > 0) {
-        let dish: Dish = result.rows;
-        return dish;
+        let order: Order = result.rows;
+        return order;
       } else {
         return false;
       }
@@ -35,20 +36,22 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
   };
   createItem = async (req: Request) => {
     try {
-      const { name, price } = req.body;
-      let newDish: Dish = {
-        dish_id: 0,
-        dish_name: name,
-        dish_price: price,
+      const { totalBill, createDate, customerID, employeeID } = req.body;
+      let newOrder: Order = {
+        order_id: 0,
+        total_bill: totalBill,
+        created_on: createDate,
+        customer_id: customerID,
+        employee_id: employeeID,
       };
+      const { total_bill, created_on, customer_id, employee_id } = newOrder;
       const result = await pool.query(
-        `INSERT INTO Dishes (dish_name, dish_price) VALUES ($1, $2) RETURNING *`,
-        [newDish.dish_name, newDish.dish_price]
+        `INSERT INTO Orders (total_bill, created_on, customer_id, employee_id) VALUES ($1, $2, $3, $4) RETURNING *`,
+        [total_bill, created_on, customer_id, employee_id]
       );
-
+      const data = result?.rows[0];
       if (result.rows) {
-        let dish: Dish = result.rows[0];
-        return dish;
+        return true;
       } else {
         return false;
       }
@@ -72,14 +75,12 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
           dish_name: name,
           dish_price: price,
         };
-
         const { dish_id: dID, dish_name: dName, dish_price: dPrice } = dish;
         try {
           const result = await pool.query(
             'UPDATE dishes SET dish_name = $1, dish_price = $2 WHERE dish_id = $3',
             [dName, dPrice, dID]
           );
-
           if (result) {
             return true;
           } else {

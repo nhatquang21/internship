@@ -1,4 +1,4 @@
-import { DishController } from './controllers/DishController';
+import { DishController } from './controllers/dish.controller';
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 const app = express();

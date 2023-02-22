@@ -1,7 +1,7 @@
 import { DishRepository } from '../repositories/DishRepository';
 
 import express, { Request, Response } from 'express';
-import Dish from '../models/DishModel';
+import Dish from '../models/dish.model';
 export class DishController {
   dr: DishRepository;
 
