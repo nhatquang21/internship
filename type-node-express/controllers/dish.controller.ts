@@ -1,4 +1,4 @@
-import { DishRepository } from '../repositories/DishRepository';
+import { DishRepository } from '../repositories/dish.repository';
 
 import express, { Request, Response } from 'express';
 import Dish from '../models/dish.model';

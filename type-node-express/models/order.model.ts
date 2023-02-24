@@ -1,14 +1,14 @@
 export default class Dish {
   order_id: number;
   total_bill: number;
-  created_on: Date;
+  created_on: string;
   employee_id: number;
   customer_id: number;
 
   constructor(
     order_id: number,
     total_bill: number,
-    created_on: Date,
+    created_on: string,
     employee_id: number,
     customer_id: number
   ) {

@@ -1,3 +1,4 @@
+import { OrderController } from './controllers/order.controller';
 import { DishController } from './controllers/dish.controller';
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
@@ -19,14 +20,23 @@ const settings = {
 
 let dc: DishController = new DishController();
 
-app.get('/dishes/topthreedishes', dc.getTopThreeDishesAllTime);
-app.get('/dishes/onebslfoodtoday', dc.getBestSellingFoodToday);
+app.get('/dishes/features/topthreedishes', dc.getTopThreeDishesAllTime);
+app.get('/dishes/features/onebslfoodtoday', dc.getBestSellingFoodToday);
 app.get('/dishes', dc.getAllDishes);
 app.get('/dishes/:id', dc.getDishById);
 app.post('/dishes/', dc.createDish);
 app.put('/dishes/:id', dc.updateDish);
 app.delete('/dishes/:id', dc.deleteDish);
 
+let oc: OrderController = new OrderController();
+app.get('/orders', oc.getAllOrders);
+app.get('/orders/:id', oc.getOrderByID);
+app.post('/orders/', oc.createOrder);
+app.delete('/orders/:id', oc.deleteOrder);
+app.put('/orders/:id', oc.updateOrder);
+app.get('/orders/features/mostvaluableorder', oc.getTheMostValuableOrderToday);
+app.get('/orders/features/ordersbyDate', oc.getProfitBetweenDate);
+app.get('/orders/features/calculateProfitOneDay', oc.getProfitOneSpecificDate);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);
 });
