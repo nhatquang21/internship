@@ -33,7 +33,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
         return false;
       }
     } catch (e) {
-      throw e;
+      return 'Invalid Paramenter';
     }
   };
   createItem = async (req: Request) => {
@@ -73,6 +73,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
           }
         }
         itemTotalBill == totalBill ? (check = true) : (check = false);
+        console.log(createDate);
         if (check) {
           let newOrder: Order = {
             order_id: 0,
@@ -86,6 +87,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
             `INSERT INTO Orders (total_bill, created_on, customer_id, employee_id) VALUES ($1, $2, $3, $4) RETURNING *`,
             [total_bill, created_on, customer_id, employee_id]
           );
+          console.log(result);
           const data = result?.rows[0];
           if (result.rows) {
             let newOrder: Order = result.rows[0];
@@ -117,9 +119,8 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
       throw e;
     }
   };
-  updateItem = async (req: Request) => {
+  updateItem = async (id: number, req: Request) => {
     try {
-      const id = parseInt(req.params.id);
       const check = await pool.query(
         `SELECT * FROM ORDERS WHERE order_id = $1`,
         [id]
@@ -210,7 +211,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
         return false;
       }
     } catch (e) {
-      console.log('er==>', e);
+      throw e;
     }
   };
   deleteItem = async (id: number) => {
@@ -243,20 +244,20 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
         return false;
       }
     } catch (e) {
-      console.log('er==>', e);
+      throw e;
     }
   };
   calculateProfitOneDay = async (req: Request) => {
-    const startDate = (req.query.date as string) + ' 00:00:00';
+    const startDate = (req.query.date as string) + '0:00:00';
     const endDate = (req.query.date as string) + ' 23:59:59';
     if (startDate && endDate) {
       console.log(startDate);
-      console.log(endDate);
       try {
         const result = await pool.query(
           `SELECT sum(total_bill), $1 as date
       FROM Orders
-      where created_on >= $2 and created_on <= $3;
+      where orders.created_on >= $2 and orders.created_on <= $3
+      
       `,
           [req.query.date, startDate, endDate]
         );
@@ -327,7 +328,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
         return false;
       }
     } else {
-      return false;
+      return 'Query param "startDate" and "endDate" are needed or invalid';
     }
   };
 }

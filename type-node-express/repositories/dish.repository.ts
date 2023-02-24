@@ -31,7 +31,7 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
         return false;
       }
     } catch (e) {
-      throw e;
+      return 'Invalid paramenter';
     }
   };
   createItem = async (req: Request) => {
@@ -57,9 +57,8 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
       throw e;
     }
   };
-  updateItem = async (req: Request) => {
+  updateItem = async (id: number, req: Request) => {
     try {
-      const id = parseInt(req.params.id);
       const check = await pool.query(
         `SELECT * FROM Dishes WHERE dish_id = $1`,
         [id]
@@ -93,7 +92,7 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
         return false;
       }
     } catch (e) {
-      console.log('er==>', e);
+      throw e;
     }
   };
   deleteItem = async (id: number) => {
@@ -123,15 +122,13 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
         return false;
       }
     } catch (e) {
-      console.log('er==>', e);
+      throw e;
     }
   };
   getTheBestSellingFoodToday = async () => {
     let today: string = getDateToday();
     let startOfDay = today + ' 00:00:00';
     let endOfDay = today + ' 23:59:59';
-    console.log(startOfDay);
-    console.log(endOfDay);
     try {
       let result = await pool.query(
         ` SELECT D.dish_id, D.dish_name, D.dish_price, sum(M.dish_quantity) as total_dishquantity
@@ -149,6 +146,8 @@ export class DishRepository implements BaseRepositoryInterface<Dish> {
         let dish: Dish = result.rows;
 
         return dish;
+      } else {
+        return result.rows;
       }
     } catch (e) {
       throw e;

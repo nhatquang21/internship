@@ -1,3 +1,4 @@
+import { EmployeeController } from './controllers/employee.controller';
 import { OrderController } from './controllers/order.controller';
 import { DishController } from './controllers/dish.controller';
 import express, { Request, Response, NextFunction } from 'express';
@@ -35,8 +36,16 @@ app.post('/orders/', oc.createOrder);
 app.delete('/orders/:id', oc.deleteOrder);
 app.put('/orders/:id', oc.updateOrder);
 app.get('/orders/features/mostvaluableorder', oc.getTheMostValuableOrderToday);
-app.get('/orders/features/ordersbyDate', oc.getProfitBetweenDate);
+app.get('/orders/features/profitFromDate', oc.getProfitBetweenDate);
 app.get('/orders/features/calculateProfitOneDay', oc.getProfitOneSpecificDate);
+
+let ec: EmployeeController = new EmployeeController();
+app.get('/employees', ec.getAllEmployees);
+app.get('/employees/:id', ec.getEmployeeByID);
+app.post('/employees/', ec.createEmployee);
+app.delete('/employees/:id', ec.deleteEmployee);
+app.put('/employees/:id', ec.updateEmployee);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);
 });

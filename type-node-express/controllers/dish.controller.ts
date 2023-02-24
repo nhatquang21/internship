@@ -59,18 +59,19 @@ export class DishController {
         ? res.status(200).send('Add dish successful')
         : res.status(202).send(`Add dish unsuccessful`);
     } catch (e) {
-      throw e;
+      res.status(400).send('Add dish failed because of the params');
     }
   };
   updateDish = async (req: Request, res: Response) => {
     try {
-      let result = await this.dr.updateItem(req);
+      const id = parseInt(req.params.id);
+      let result = await this.dr.updateItem(id, req);
 
       result
         ? res.status(200).send('Update dish successful')
         : res.status(202).send(`Update dish unsuccessful`);
     } catch (e) {
-      throw e;
+      res.status(400).send('Failed to update dish because of the param');
     }
   };
   deleteDish = async (req: Request, res: Response) => {
@@ -82,7 +83,7 @@ export class DishController {
         ? res.status(200).send('Delete dish successful')
         : res.status(202).send(`Delete dish unsuccessful`);
     } catch (e) {
-      throw e;
+      res.status(400).send(`Failed to delete dish because of the paramenter`);
     }
   };
 }
