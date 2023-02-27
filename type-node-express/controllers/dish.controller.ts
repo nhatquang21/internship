@@ -2,6 +2,7 @@ import { DishRepository } from '../repositories/dish.repository';
 
 import express, { Request, Response } from 'express';
 import Dish from '../models/dish.model';
+
 export class DishController {
   dr: DishRepository;
 
@@ -12,7 +13,7 @@ export class DishController {
     try {
       let dishes = await this.dr.getTopThreeDishHotpot();
       if (dishes) {
-        res.status(200).send(dishes);
+        return res.status(200).send(dishes);
       }
     } catch (e) {
       throw e;

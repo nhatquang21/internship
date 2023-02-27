@@ -1,3 +1,5 @@
+import User from '../models/auth.model';
+
 const getDateToday = () => {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -8,21 +10,41 @@ const getDateToday = () => {
   return strToday;
 };
 
-// const dishList = [
-//   {
-//     dish_id: 1,
-//     dish_quantity: 1,
-//     dish_price: 55000,
-//   },
-//   {
-//     dish_id: 2,
-//     dish_quantity: 1,
-//     dish_price: 55000,
-//   },
-// ];
+const jwt = require('jsonwebtoken');
+const promisify = require('util').promisify;
 
-// for (let item of dishList) {
-//   console.log(item.dish_id);
-// }
+const sign = promisify(jwt.sign).bind(jwt);
+const verify = promisify(jwt.verify).bind(jwt);
 
-export { getDateToday };
+const generateToken = async (
+  payload: User,
+  secretSignature: any,
+  tokenLife: any
+) => {
+  try {
+    return await sign(
+      {
+        payload,
+      },
+      secretSignature,
+      {
+        algorithm: 'HS256',
+        expiresIn: tokenLife,
+      }
+    );
+  } catch (error) {
+    console.log(`Error in generate access token:  + ${error}`);
+    return null;
+  }
+};
+
+const verifyToken = async (token: any, secretKey: any) => {
+  try {
+    return await verify(token, secretKey);
+  } catch (error) {
+    console.log(`Error in verify access token:  + ${error}`);
+    return null;
+  }
+};
+
+export { getDateToday, generateToken, verifyToken };
