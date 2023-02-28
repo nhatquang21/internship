@@ -5,14 +5,12 @@ const getDateToday = () => {
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
-
   let strToday = `${yyyy}-${mm}-${dd}`;
   return strToday;
 };
 
 const jwt = require('jsonwebtoken');
 const promisify = require('util').promisify;
-
 const sign = promisify(jwt.sign).bind(jwt);
 const verify = promisify(jwt.verify).bind(jwt);
 
@@ -47,4 +45,7 @@ const verifyToken = async (token: any, secretKey: any) => {
   }
 };
 
-export { getDateToday, generateToken, verifyToken };
+const parseJwt = async (token: string) => {
+  return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+};
+export { getDateToday, generateToken, verifyToken, parseJwt };

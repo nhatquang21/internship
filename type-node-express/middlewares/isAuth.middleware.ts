@@ -1,15 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { verifyToken } from '../utilities';
-export default async function isAuth(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+import pool from '../config/db';
+import { verifyToken, parseJwt } from '../utilities';
+
+export async function isAuth(req: Request, res: Response, next: NextFunction) {
   const bearerHeader = req.headers['authorization'];
   if (typeof bearerHeader !== 'undefined') {
     const bearer = bearerHeader.split(' ');
     const accessToken = bearer[1];
-    console.log(accessToken);
     const verfified = await verifyToken(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
@@ -25,3 +22,37 @@ export default async function isAuth(
     return res.status(401).send('Cannot find the access token');
   }
 }
+
+export function authRole(role: string[]) {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    console.log(role);
+    const bearerHeader = req.headers['authorization'];
+    if (typeof bearerHeader !== 'undefined') {
+      const bearer = bearerHeader.split(' ');
+      const accessToken = bearer[1];
+      let user = await parseJwt(accessToken);
+      let role_id = user.payload['role_id'];
+
+      if (role_id) {
+        let result = await pool.query(
+          `Select * from users U inner join roles R on U.role_id = R.role_id where R.role_id = $1`,
+          [role_id]
+        );
+        let roleQuery = result.rows[0].role_name;
+        if (role.includes(roleQuery)) {
+          next();
+        } else {
+          res.status(401);
+          return res.send('Not allowed');
+        }
+      } else {
+        res.status(401);
+        return res.send('Not allowed');
+      }
+    }
+  };
+}
+module.exports = {
+  isAuth,
+  authRole,
+};

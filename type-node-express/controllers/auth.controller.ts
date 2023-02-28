@@ -34,7 +34,7 @@ export class AuthController {
   };
   createUser = async (req: Request, res: Response) => {
     let result = await this.ur.createItem(req, res);
-    if (!result) res.status(400).send('Invalid data ');
+    // if (!result) res.status(400).send('Invalid data ');
   };
   updatePwd = async (req: Request, res: Response) => {
     try {

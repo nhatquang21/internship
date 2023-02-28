@@ -33,32 +33,13 @@ export class OrderController {
     }
   };
   createOrder = async (req: Request, res: Response) => {
-    try {
-      let result = await this.or.createItem(req);
-
-      result
-        ? res.status(200).send('Add order successful')
-        : res.status(202).send(`Add order unsuccessful`);
-    } catch (e) {
-      res
-        .status(400)
-        .send('Add order failed because of the params or invalid values');
-    }
+    let result = await this.or.createItem(req, res);
   };
   updateOrder = async (req: Request, res: Response) => {
-    try {
-      const id = parseInt(req.params.id);
-      let result = await this.or.updateItem(id, req);
-
-      result
-        ? res.status(200).send('Update order successful')
-        : res.status(202).send(`Update order unsuccessful`);
-    } catch (e) {
-      res
-        .status(400)
-        .send('Update order failed because of the params or invalid values');
-    }
+    const id = parseInt(req.params.id);
+    let result = await this.or.updateItem(id, req, res);
   };
+
   deleteOrder = async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);

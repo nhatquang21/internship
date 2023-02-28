@@ -1,12 +1,12 @@
 import Order from '../models/order.model';
 import pool from '../config/db';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 import BaseRepositoryInterface from './interface/base.repository.interface';
 import { getDateToday } from '../utilities';
 import moment from 'moment';
 import { start } from 'repl';
 
-export default class DishRepository implements BaseRepositoryInterface<Order> {
+export default class OrderRepository implements BaseRepositoryInterface<Order> {
   getAll = async () => {
     try {
       let result = await pool.query(`SELECT * FROM Orders`);
@@ -36,7 +36,7 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
       return 'Invalid Paramenter';
     }
   };
-  createItem = async (req: Request) => {
+  createItem = async (req: Request, res: Response) => {
     try {
       let createDate: string = moment().toISOString();
       const { totalBill, customerId, employeeId, dishList } = req.body;
@@ -73,7 +73,6 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
           }
         }
         itemTotalBill == totalBill ? (check = true) : (check = false);
-        console.log(createDate);
         if (check) {
           let newOrder: Order = {
             order_id: 0,
@@ -87,11 +86,9 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
             `INSERT INTO Orders (total_bill, created_on, customer_id, employee_id) VALUES ($1, $2, $3, $4) RETURNING *`,
             [total_bill, created_on, customer_id, employee_id]
           );
-          console.log(result);
           const data = result?.rows[0];
           if (result.rows) {
             let newOrder: Order = result.rows[0];
-
             let newOrderID = newOrder.order_id;
 
             if (dishList) {
@@ -102,24 +99,26 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
                   [dish_id, newOrderID, dish_quantity, dish_totalprice]
                 );
               }
-              return true;
+              return res.status(200).send('Insert order successful');
             } else {
-              return false;
+              return res
+                .status(400)
+                .send('Insert failed to column order_dishes');
             }
           } else {
             return false;
           }
         } else {
-          return false;
+          return res.status(400).send('Invalid values');
         }
       } else {
-        return false;
+        return res.status(400).send('The type of params are not valid');
       }
-    } catch (e) {
-      throw e;
+    } catch (e: any) {
+      return res.status(400).send(e.detail);
     }
   };
-  updateItem = async (id: number, req: Request) => {
+  updateItem = async (id: number, req: Request, res: Response) => {
     try {
       const check = await pool.query(
         `SELECT * FROM ORDERS WHERE order_id = $1`,
@@ -191,27 +190,31 @@ export default class DishRepository implements BaseRepositoryInterface<Order> {
                       [dish_id, id, dish_quantity, dish_totalprice]
                     );
                   }
-                  return true;
+                  return res.status(200).send('Update order successful');
                 } else {
-                  return false;
+                  return res.status(404).send('Update order unsuccessful');
                 }
               } else {
-                return false;
+                return res.status(400).send('Update order failed');
               }
             } else {
-              return false;
+              return res
+                .status(400)
+                .send(
+                  'Total value of dishes in the order does not equal to the total value of the bills'
+                );
             }
           } else {
-            return false;
+            return res.status(401).send('Invalid paramenters');
           }
-        } catch (e) {
-          throw e;
+        } catch (e: any) {
+          return res.status(404).send(e.detail);
         }
       } else {
-        return false;
+        return res.status(401).send(`Order doesn't exist`);
       }
-    } catch (e) {
-      throw e;
+    } catch (e: any) {
+      return res.status(404).send(e.detail);
     }
   };
   deleteItem = async (id: number) => {

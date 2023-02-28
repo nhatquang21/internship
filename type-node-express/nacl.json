@@ -1,0 +1,77 @@
+[
+    {
+      "group": "admin",
+      "permissions": [
+        {
+          "resource": "auth/*",
+          "methods": ["POST", "GET", "PUT", "DELETE"],
+          "action": "allow"
+        }, 
+        {
+            "resource": "dishes/*",
+            "methods": ["POST", "GET", "PUT", "DELETE"],
+            "action": "allow"
+        },
+        {
+            "resource": "orders/*",
+            "methods": ["POST", "GET", "PUT", "DELETE"],
+            "action": "allow"
+        },
+        {
+            "resource": "employees/*",
+            "methods": ["POST", "GET", "PUT", "DELETE"],
+            "action": "allow"
+        }
+      ]
+    }, 
+    {
+        "group": "employees",
+        "permissions": [
+            {
+              "resource": "auth/*",
+              "methods": ["POST", "GET", "PUT", "DELETE"],
+              "action": "deny"
+            }, 
+            {
+                "resource": "dishes/*",
+                "methods": ["POST", "GET", "PUT", "DELETE"],
+                "action": "allow"
+            },
+            {
+                "resource": "orders/*",
+                "methods": ["POST", "GET", "PUT", "DELETE"],
+                "action": "allow"
+            },
+            {
+                "resource": "employees/*",
+                "methods": ["POST", "GET", "PUT", "DELETE"],
+                "action": "deny"
+            }
+        ]
+    },
+    {
+        "group": "customers",
+        "permissions": [
+            {
+              "resource": "auth/*",
+              "methods": ["POST", "GET", "PUT", "DELETE"],
+              "action": "deny"
+            }, 
+            {
+                "resource": "dishes/*",
+                "methods": ["POST", "PUT", "DELETE"],
+                "action": "deny"
+            },
+            {
+                "resource": "orders/*",
+                "methods": ["POST", "PUT", "DELETE"],
+                "action": "deny"
+            },
+            {
+                "resource": "employees/*",
+                "methods": ["POST", "GET", "PUT", "DELETE"],
+                "action": "deny"
+            }
+        ]
+    }
+  ]

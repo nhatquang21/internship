@@ -63,13 +63,14 @@ export default class AuthRepository implements BaseRepositoryInterface<User> {
             user_pwd: hash,
             created_on: createDate,
             updated_on: '',
+            role_id: 3,
           };
 
-          const { user_name, user_pwd, created_on } = newUser;
+          const { user_name, user_pwd, created_on, role_id } = newUser;
           try {
             const result = await pool.query(
-              `INSERT INTO Users (user_name, password,created_on) VALUES ($1, $2, $3) RETURNING *`,
-              [user_name, user_pwd, created_on]
+              `INSERT INTO Users (user_name, password,created_on, role_id) VALUES ($1, $2, $3, $4) RETURNING *`,
+              [user_name, user_pwd, created_on, role_id]
             );
             if (result.rows[0]) {
               return res.send(201).send('Create user successful');
@@ -105,6 +106,7 @@ export default class AuthRepository implements BaseRepositoryInterface<User> {
             user_pwd: hash,
             created_on: '',
             updated_on: updatedDate,
+            role_id: 3,
           };
           try {
             const result = await pool.query(
