@@ -9,5 +9,9 @@ export default interface BaseRepositoryInterface<T> {
     req: Request,
     res: Response
   ): Promise<boolean | undefined | string | any>;
-  deleteItem(id: number): Promise<boolean | undefined | string>;
+  deleteItem(
+    id: number,
+    req: Request,
+    res: Response
+  ): Promise<boolean | undefined | string | Response>;
 }

@@ -335,3 +335,38 @@ export default class OrderRepository implements BaseRepositoryInterface<Order> {
     }
   };
 }
+
+// let oc: OrderController = new OrderController();
+// app.get('/orders', isAuth, authRole(['admin', 'employee']), oc.getAllOrders);
+// app.get(
+//   '/orders/:id',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   oc.getOrderByID
+// );
+// app.post('/orders/', isAuth, authRole(['admin', 'employee']), oc.createOrder);
+// app.delete(
+//   '/orders/:id',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   oc.deleteOrder
+// );
+// app.put('/orders/:id', isAuth, authRole(['admin', 'employee']), oc.updateOrder);
+// app.get(
+//   '/orders/features/mostvaluableorder',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   oc.getTheMostValuableOrderToday
+// );
+// app.get(
+//   '/orders/features/profitFromDate',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   oc.getProfitBetweenDate
+// );
+// app.get(
+//   '/orders/features/calculateProfitOneDay',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   oc.getProfitOneSpecificDate
+// );

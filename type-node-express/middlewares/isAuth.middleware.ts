@@ -23,9 +23,8 @@ export async function isAuth(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-export function authRole(role: string[]) {
+export function authRole(role: string[] | string) {
   return async (req: Request, res: Response, next: NextFunction) => {
-    console.log(role);
     const bearerHeader = req.headers['authorization'];
     if (typeof bearerHeader !== 'undefined') {
       const bearer = bearerHeader.split(' ');

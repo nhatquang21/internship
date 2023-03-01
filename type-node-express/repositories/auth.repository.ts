@@ -63,7 +63,7 @@ export default class AuthRepository implements BaseRepositoryInterface<User> {
             user_pwd: hash,
             created_on: createDate,
             updated_on: '',
-            role_id: 3,
+            role_id: 2,
           };
 
           const { user_name, user_pwd, created_on, role_id } = newUser;
@@ -191,8 +191,14 @@ export default class AuthRepository implements BaseRepositoryInterface<User> {
       user,
     });
   };
-  findUsername = async (req: Request) => {
+  findUsername = async (req: Request, res: Response) => {
     let { username } = req.query;
+    if (!username) {
+      res.status(404).send('Cannot find the query params');
+    }
+    if (typeof username != 'string') {
+      res.status(404).send('Type of the query is not string');
+    }
     username += '%';
 
     try {
@@ -200,14 +206,15 @@ export default class AuthRepository implements BaseRepositoryInterface<User> {
         `Select * from users where user_name ILIKE $1`,
         [username]
       );
-      if (getAccount.rows > 0) {
+
+      if (getAccount.rows.length > 0) {
         let list: User = getAccount.rows;
-        return list;
+        return res.status(200).send(list);
       } else {
-        return false;
+        return res.status(400).send(`Cannot find the username`);
       }
-    } catch (e) {
-      throw e;
+    } catch (e: any) {
+      return res.status(404).send(e.details);
     }
   };
 }

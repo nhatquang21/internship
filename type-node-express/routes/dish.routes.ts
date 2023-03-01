@@ -24,3 +24,18 @@ router.delete(
 );
 
 module.exports = router;
+
+// let dc: DishController = new DishController();
+
+// app.get('/dishes/features/topthreedishes', dc.getTopThreeDishesAllTime);
+// app.get('/dishes/features/onebslfoodtoday', dc.getBestSellingFoodToday);
+// app.get('/dishes', dc.getAllDishes);
+// app.get('/dishes/:id', dc.getDishById);
+// app.post('/dishes/', isAuth, authRole(['admin', 'employee']), dc.createDish);
+// app.put('/dishes/:id', isAuth, authRole(['admin', 'employee']), dc.updateDish);
+// app.delete(
+//   '/dishes/:id',
+//   isAuth,
+//   authRole(['admin', 'employee']),
+//   dc.deleteDish
+// );

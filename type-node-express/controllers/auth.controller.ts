@@ -64,13 +64,9 @@ export class AuthController {
   };
   findUsername = async (req: Request, res: Response) => {
     try {
-      let result = await this.ur.findUsername(req);
-      console.log(result);
-      result
-        ? res.status(200).send(result)
-        : res.status(202).send(`get user unsuccessful`);
-    } catch (e) {
-      res.status(400).send(`Failed to get user because of the paramenter`);
+      let result = await this.ur.findUsername(req, res);
+    } catch (e: any) {
+      res.status(400).send(e.details);
     }
   };
 }
