@@ -1,0 +1,1045 @@
+{
+	"info": {
+		"_postman_id": "bb9590f6-e97f-4f66-bcf6-2166394eb1d1",
+		"name": "HotpotManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24238883"
+	},
+	"item": [
+		{
+			"name": "Get dishes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3MjYwMiwiZXhwIjoxNjc3NTczODAyfQ.luaSaclJ-mIy7RAinQQzX0g3tg-8_rIdsYt3rHnnOME",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/dishes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"dishes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get roles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzY0MTkyOCwiZXhwIjoxNjc3NjQzMTI4fQ.rBLkmj9xY1QBj6sgh8DqmvPFf-6Vw-OPKYhAKSUD9bM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roleName\": \"cdmin2\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzY0MTkyOCwiZXhwIjoxNjc3NjQzMTI4fQ.rBLkmj9xY1QBj6sgh8DqmvPFf-6Vw-OPKYhAKSUD9bM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roleName\": \"cdmin2\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/roles/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"roles",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzY0MTkyOCwiZXhwIjoxNjc3NjQzMTI4fQ.rBLkmj9xY1QBj6sgh8DqmvPFf-6Vw-OPKYhAKSUD9bM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roleName\": \"cdmin2\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzY0MTkyOCwiZXhwIjoxNjc3NjQzMTI4fQ.rBLkmj9xY1QBj6sgh8DqmvPFf-6Vw-OPKYhAKSUD9bM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roleName\": \"cdmin2\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/roles/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"roles",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzOTI1OCwiZXhwIjoxNjc3NjQwNDU4fQ.k-45vO3HhBM6cM5fxhEZhwEFidcTvZoZmuXlJ3zG0XI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzOTI1OCwiZXhwIjoxNjc3NjQwNDU4fQ.k-45vO3HhBM6cM5fxhEZhwEFidcTvZoZmuXlJ3zG0XI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test3\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update password users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzOTI1OCwiZXhwIjoxNjc3NjQwNDU4fQ.k-45vO3HhBM6cM5fxhEZhwEFidcTvZoZmuXlJ3zG0XI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test3\",\n    \"pwd\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzOTI1OCwiZXhwIjoxNjc3NjQwNDU4fQ.k-45vO3HhBM6cM5fxhEZhwEFidcTvZoZmuXlJ3zG0XI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test3\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/13/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"13",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzODUzNCwiZXhwIjoxNjc3NjM5NzM0fQ.qtBIkacdpRO7MK7lFXuf2uoyFrGT_v5GHyyOGJO61Ew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/find?username=nhat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"find"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "nhat"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzODEwNCwiZXhwIjoxNjc3NjM5MzA0fQ.ImMp9FfMKgW1_3IzbmwByXF4r_o8dTSwwTsqnfuC0lc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzODEwNCwiZXhwIjoxNjc3NjM5MzA0fQ.ImMp9FfMKgW1_3IzbmwByXF4r_o8dTSwwTsqnfuC0lc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n   \"name\": \"Nguyễn Thị Lựu 2\",\n   \"status\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/employees/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzODEwNCwiZXhwIjoxNjc3NjM5MzA0fQ.ImMp9FfMKgW1_3IzbmwByXF4r_o8dTSwwTsqnfuC0lc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n   \"name\": \"Nguyễn Thị Lựu 2\",\n   \"status\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/employees/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjcsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkdGhMUTVqRE9pYkxNTmRJLk9pQnc4ZWRaeDAvY0RwQVY5WjdOemhCWmp3OUtMd2JJZVhFTzIiLCJjcmVhdGVkX29uIjoiMjAyMy0wMi0yN1QwMjo1OTowOS42NDhaIiwidXBkYXRlZF9vbiI6bnVsbCwicm9sZV9pZCI6MX0sImlhdCI6MTY3NzYzODEwNCwiZXhwIjoxNjc3NjM5MzA0fQ.ImMp9FfMKgW1_3IzbmwByXF4r_o8dTSwwTsqnfuC0lc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n   \"name\": \"Nguyễn Thị Lựu\",\n   \"status\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN ROLE: EMPLOYEE",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test3\",\n    \"pwd\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN ROLE: CUSTOMER",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test2\",\n    \"pwd\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3ODA3NSwiZXhwIjoxNjc3NTc5Mjc1fQ.pbFMCBuyV69n8ohi_zsp0s_O2SXDVqAB4RvXp1AzWwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3ODA3NSwiZXhwIjoxNjc3NTc5Mjc1fQ.pbFMCBuyV69n8ohi_zsp0s_O2SXDVqAB4RvXp1AzWwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 107000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the most valuable order today",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3ODA3NSwiZXhwIjoxNjc3NTc5Mjc1fQ.pbFMCBuyV69n8ohi_zsp0s_O2SXDVqAB4RvXp1AzWwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/features/mostvaluableorder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"features",
+						"mostvaluableorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profit by date with start date and endDate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3OTM1MSwiZXhwIjoxNjc3NTgwNTUxfQ.Jqz0vZ6YfMWT5w0K7cEngG54xh3TWPNOiI6L8OE_paQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/features/profitFromDate?startDate='2023-02-16'&endDate='2023-02-28'",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"features",
+						"profitFromDate"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "'2023-02-16'"
+						},
+						{
+							"key": "endDate",
+							"value": "'2023-02-28'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profit one date with date/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3OTM1MSwiZXhwIjoxNjc3NTgwNTUxfQ.Jqz0vZ6YfMWT5w0K7cEngG54xh3TWPNOiI6L8OE_paQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/features/calculateProfitOneDay?date=\"2023-02-28\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"features",
+						"calculateProfitOneDay"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "\"2023-02-28\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3OTM1MSwiZXhwIjoxNjc3NTgwNTUxfQ.Jqz0vZ6YfMWT5w0K7cEngG54xh3TWPNOiI6L8OE_paQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top three dishes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3OTM1MSwiZXhwIjoxNjc3NTgwNTUxfQ.Jqz0vZ6YfMWT5w0K7cEngG54xh3TWPNOiI6L8OE_paQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/dishes/features/topthreedishes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"dishes",
+						"features",
+						"topthreedishes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One best selling food today",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOjEsInVzZXJfbmFtZSI6Im5oYXRxdWFuZzEiLCJwYXNzd29yZCI6IiQyYiQxMCRpR3hrSkI5YzBULzh2WE9HbDZwSkZ1UzdTRHAwZEZUR0Rma3pkdHBTd2RIWG5mWFpqa0YwcSIsImNyZWF0ZWRfb24iOiIyMDIzLTAyLTI0VDEwOjM4OjM5LjY2NVoiLCJ1cGRhdGVkX29uIjoiMjAyMy0wMi0yOFQwODoxODo0OC44MDJaIiwicm9sZV9pZCI6Mn0sImlhdCI6MTY3NzU3OTM1MSwiZXhwIjoxNjc3NTgwNTUxfQ.Jqz0vZ6YfMWT5w0K7cEngG54xh3TWPNOiI6L8OE_paQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"totalBill\": 1070000,\n    \"customerId\": 4,\n    \"employeeId\": 2,\n    \"dishList\": [\n        {\n            \"dish_id\": 6,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 50000\n        }, \n        {\n            \"dish_id\": 5,\n            \"dish_quantity\" : 2,\n            \"dish_totalprice\": 110000\n        },\n         {\n            \"dish_id\": 17,\n            \"dish_quantity\" : 1,\n           \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 18,\n            \"dish_quantity\" : 1,\n          \"dish_totalprice\": 55000\n        },\n         {\n            \"dish_id\": 14,\n            \"dish_quantity\": 20,\n            \"dish_totalprice\": 800000\n           \n        }\n    ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/dishes/features/onebslfoodtoday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"dishes",
+						"features",
+						"onebslfoodtoday"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
